@@ -1,0 +1,15 @@
+artifact_uri: file:///home/student/bird_classification_cnn/bird_classification_cnn-1/mlruns/477375858739173213/5227ffc9db0d4008b54e8c973a56596d/artifacts
+end_time: 1713018021696
+entry_point_name: ''
+experiment_id: '477375858739173213'
+lifecycle_stage: active
+run_id: 5227ffc9db0d4008b54e8c973a56596d
+run_name: enthused-snipe-357
+run_uuid: 5227ffc9db0d4008b54e8c973a56596d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713017018556
+status: 4
+tags: []
+user_id: student

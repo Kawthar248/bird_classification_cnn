@@ -1,0 +1,15 @@
+artifact_uri: file:///home/student/bird_classification_cnn/bird_classification_cnn-1/mlruns/477375858739173213/fcd2a36a33ff4d4da6665c8fb35a9c2f/artifacts
+end_time: 1713019269026
+entry_point_name: ''
+experiment_id: '477375858739173213'
+lifecycle_stage: active
+run_id: fcd2a36a33ff4d4da6665c8fb35a9c2f
+run_name: grandiose-stoat-482
+run_uuid: fcd2a36a33ff4d4da6665c8fb35a9c2f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713019255778
+status: 4
+tags: []
+user_id: student

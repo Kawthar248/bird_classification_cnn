@@ -1,36 +1,52 @@
+import torch
+from torchvision import transforms
+from torch.utils.data import DataLoader
+from src.data_loader import prepare_dataframes, BirdsDataset
+from src.model import build_model
 import os
-from tensorflow.keras.models import load_model
-from data_loader import load_data
 
-def evaluate(model_path: str,
-             test_dir: str,
-             img_height: int = 224,
-             img_width: int = 224,
-             batch_size: int = 32) -> None:
+def evaluate(model_path: str, test_dir: str) -> None:
     """
-    Evaluates the trained model on the test dataset.
+    Evaluates the trained PyTorch model on the test dataset.
 
     Args:
-        model_path (str): Path to the saved model.
+        model_path (str): Path to the saved PyTorch model's state dictionary.
         test_dir (str): Path to the test directory.
-        img_height (int): Height of the input images. Default is 224.
-        img_width (int): Width of the input images. Default is 224.
-        batch_size (int): Size of the batches of data. Default is 32.
     """
-    # Load the saved model
-    model = load_model(model_path)
+    # Set device for evaluation
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    # Load the test data
-    _, _, test_data = load_data(train_dir='',
-                                test_dir=test_dir,
-                                validation_split=0,
-                                img_height=img_height,
-                                img_width=img_width,
-                                batch_size=batch_size)
+    # Load the saved model's state dict
+    model = build_model().to(device)
+    model.load_state_dict(torch.load(model_path))
+    model.eval()
 
-    # Evaluate the model on the test set
-    test_loss, test_accuracy = model.evaluate(test_data)
-    print(f"Test Loss: {test_loss}, Test Accuracy: {test_accuracy}")
+    # Prepare the data transforms and test dataset
+    transform = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        # Include any other transforms you used during training
+    ])
+
+    # You need to implement the logic of preparing the test dataset in prepare_dataframes or a similar function
+    _, test_df = prepare_dataframes(test_dir)
+    test_dataset = BirdsDataset(test_df, transform=transform)
+    test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
+
+    # Evaluate the model
+    correct = 0
+    total = 0
+    with torch.no_grad():
+        for images, labels in test_loader:
+            images, labels = images.to(device), labels.to(device)
+            outputs = model(images)
+            _, predicted = torch.max(outputs.data, 1)
+            total += labels.size(0)
+            correct += (predicted == labels).sum().item()
+
+    # Calculate test accuracy
+    test_accuracy = correct / total
+    print(f'Test Accuracy: {test_accuracy:.4f}')
 
 if __name__ == '__main__':
-    evaluate(model_path='models/bird_classification_model.h5', test_dir=os.path.join('data', 'test'))
+    evaluate(model_path='models/bird_classification_model.pth', test_dir=os.path.join('data', 'test'))

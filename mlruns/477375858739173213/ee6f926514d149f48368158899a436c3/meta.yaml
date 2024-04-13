@@ -1,0 +1,15 @@
+artifact_uri: file:///home/student/bird_classification_cnn/bird_classification_cnn-1/mlruns/477375858739173213/ee6f926514d149f48368158899a436c3/artifacts
+end_time: 1713019245642
+entry_point_name: ''
+experiment_id: '477375858739173213'
+lifecycle_stage: active
+run_id: ee6f926514d149f48368158899a436c3
+run_name: skittish-trout-54
+run_uuid: ee6f926514d149f48368158899a436c3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713018034123
+status: 4
+tags: []
+user_id: student
