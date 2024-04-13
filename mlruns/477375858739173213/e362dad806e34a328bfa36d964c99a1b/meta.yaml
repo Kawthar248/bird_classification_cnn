@@ -1,0 +1,15 @@
+artifact_uri: file:///home/student/bird_classification_cnn/bird_classification_cnn-1/mlruns/477375858739173213/e362dad806e34a328bfa36d964c99a1b/artifacts
+end_time: 1713027441002
+entry_point_name: ''
+experiment_id: '477375858739173213'
+lifecycle_stage: active
+run_id: e362dad806e34a328bfa36d964c99a1b
+run_name: gregarious-moth-657
+run_uuid: e362dad806e34a328bfa36d964c99a1b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713022716137
+status: 4
+tags: []
+user_id: student

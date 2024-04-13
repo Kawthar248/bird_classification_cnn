@@ -1,0 +1,15 @@
+artifact_uri: file:///home/student/bird_classification_cnn/bird_classification_cnn-1/mlruns/477375858739173213/dab3af4a9577460dba0e91f058e6b8e4/artifacts
+end_time: 1713032871668
+entry_point_name: ''
+experiment_id: '477375858739173213'
+lifecycle_stage: active
+run_id: dab3af4a9577460dba0e91f058e6b8e4
+run_name: judicious-wolf-83
+run_uuid: dab3af4a9577460dba0e91f058e6b8e4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713028128244
+status: 3
+tags: []
+user_id: student

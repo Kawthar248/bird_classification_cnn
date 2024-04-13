@@ -1,0 +1,15 @@
+artifact_uri: file:///home/student/bird_classification_cnn/bird_classification_cnn-1/mlruns/477375858739173213/a02a86327c8d405a9e43cfaa0cfe6b29/artifacts
+end_time: 1713034950371
+entry_point_name: ''
+experiment_id: '477375858739173213'
+lifecycle_stage: active
+run_id: a02a86327c8d405a9e43cfaa0cfe6b29
+run_name: able-slug-233
+run_uuid: a02a86327c8d405a9e43cfaa0cfe6b29
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713034448739
+status: 4
+tags: []
+user_id: student

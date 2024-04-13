@@ -1,0 +1,15 @@
+artifact_uri: file:///home/student/bird_classification_cnn/bird_classification_cnn-1/mlruns/477375858739173213/d2bd6660df39411389cec87536ef4563/artifacts
+end_time: 1713022213147
+entry_point_name: ''
+experiment_id: '477375858739173213'
+lifecycle_stage: active
+run_id: d2bd6660df39411389cec87536ef4563
+run_name: suave-cow-79
+run_uuid: d2bd6660df39411389cec87536ef4563
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713022187720
+status: 4
+tags: []
+user_id: student
