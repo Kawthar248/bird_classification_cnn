@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bird Classifier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Upload Photo</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="photo" accept="image/*">
+        <br><br><br>
+        <button type="submit">Upload</button>
+        <div id="predictionResult" class="prediction-result">
+            <p>{{ prediction }}</p>
+        </div>
+    </form>
+</body>
+</html>
+
