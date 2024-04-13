@@ -1,7 +1,7 @@
 import torch
-from torchvision import transforms
+from torchvision import transforms, datasets
 from torch.utils.data import DataLoader
-from src.data_loader import prepare_dataframes, BirdsDataset
+from src.data_loader import prepare_dataframes
 from src.model import build_model
 import os
 
@@ -21,16 +21,15 @@ def evaluate(model_path: str, test_dir: str) -> None:
     model.load_state_dict(torch.load(model_path))
     model.eval()
 
-    # Prepare the data transforms and test dataset
+    # Prepare the data transforms
     transform = transforms.Compose([
         transforms.Resize((224, 224)),
         transforms.ToTensor(),
-        # Include any other transforms you used during training
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
 
-    # You need to implement the logic of preparing the test dataset in prepare_dataframes or a similar function
-    _, test_df = prepare_dataframes(test_dir)
-    test_dataset = BirdsDataset(test_df, transform=transform)
+    # Load the test dataset
+    test_dataset = datasets.ImageFolder(test_dir, transform=transform)
     test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
 
     # Evaluate the model
@@ -49,4 +48,4 @@ def evaluate(model_path: str, test_dir: str) -> None:
     print(f'Test Accuracy: {test_accuracy:.4f}')
 
 if __name__ == '__main__':
-    evaluate(model_path='models/bird_classification_model.pth', test_dir=os.path.join('data', 'test'))
+    evaluate(model_path='models/bird_classification_model.pth', test_dir=os.path.join('datadata', 'test'))

@@ -47,7 +47,7 @@ def get_optimizer(model: nn.Module) -> optim.Optimizer:
     Returns:
         optim.Optimizer: The Adam optimizer.
     """
-    return optim.Adam(model.parameters(), lr=0.0001 , weight_decay = 1e-5)
+    return optim.Adam(model.parameters(), lr=0.0001)
 
 
 def get_loss_function() -> nn.Module:
