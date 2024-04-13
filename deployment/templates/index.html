@@ -4,18 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bird Classifier</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Upload Photo</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="photo" accept="image/*">
-        <br><br><br>
-        <button type="submit">Upload</button>
-        <div id="predictionResult" class="prediction-result">
-            <p>{{ prediction }}</p>
-        </div>
-    </form>
+    <h1>Upload a Photo of a Bird </h1>
+    <h1>🦅🐥🕊️🦆...</h1>
+    <div class="upload-form">
+        <form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">
+            <input type="file" id="fileInput" name="photo" accept="image/*" onchange="previewImage();">
+            <button type="submit"> Predict🕊️</button>
+        </form>
+    </div>
+        <img id="uploadPreview" src="#" alt="Image Preview" style="display: none;">
+
+    <div id="predictionResult" class="prediction-result">
+        {% if prediction %}
+            <h2>Prediction Results:</h2>
+            <p><strong>{{ prediction }}</strong></p>
+        {% else %}
+            <p>No prediction made yet.</p>
+        {% endif %}
+    </div>
+
+<script>
+function previewImage() {
+    var file = document.getElementById("fileInput").files[0];
+    var reader = new FileReader();
+    reader.onloadend = function() {
+        document.getElementById('uploadPreview').style.display = "block";
+        document.getElementById('uploadPreview').src = reader.result;
+    }
+    if (file) {
+        reader.readAsDataURL(file);
+    } else {
+        document.getElementById('uploadPreview').src = "";
+        document.getElementById('uploadPreview').style.display = "none";
+    }
+}
+
+// Ensure the image stays visible after the form is submitted
+document.getElementById('uploadForm').onsubmit = function() {
+    var fileInput = document.getElementById('fileInput');
+    if (fileInput.files.length > 0) {
+        var file = fileInput.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function() {
+            document.getElementById('uploadPreview').style.display = "block";
+            document.getElementById('uploadPreview').src = reader.result;
+        }
+        reader.readAsDataURL(file);
+    }
+    return true;
+};
+</script>
 </body>
 </html>
-

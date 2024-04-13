@@ -1,0 +1,95 @@
+/* General body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: linear-gradient(to right top, #65dfc9, #6cdbeb); /* Stylish gradient background */
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px;
+}
+
+/* Common styling for form and results */
+.container {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background for contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px; /* Ensures both containers are of the same width */
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-out;
+}
+
+.upload-form form, .prediction-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="file"], button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    color: #333;
+    transition: transform 0.2s ease-out, background-color 0.3s;
+}
+
+input[type="file"] {
+    background: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+input[type="file"]:hover,
+input[type="file"]:focus {
+    background: rgba(255, 255, 255, 1);
+}
+
+button {
+    margin-bottom: 50px;
+    background-color: #ff8c00; /* Vivid orange button */
+    color: white;
+}
+
+button:hover {
+    background-color: #e76f00; /* Darker shade on hover */
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.6);
+}
+
+#uploadPreview {
+    max-width: 100%; /* Adjusts to the size of the container */
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensures text and other elements are centered and styled appropriately */
+.prediction-result h2{
+    margin: 10px 0;
+    color: #ffffff;
+    font-size: medium;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+.prediction-result p{
+    margin: 10px 0;
+    color: #ee6205;
+    font-size: medium;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6);
+    text-align: center;
+
+}
